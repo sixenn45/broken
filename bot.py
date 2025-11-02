@@ -9,9 +9,9 @@ from config import Config
 print("🚀 Starting Telegram UserBot...")
 
 # ⚡⚡⚡ AMBIL CREDENTIALS DARI ENVIRONMENT ⚡⚡⚡
-api_id = int(os.environ['API_ID'])
-api_hash = os.environ['API_HASH']) 
-phone_number = os.environ['PHONE_NUMBER']
+api_id = int(os.environ['25920995'])
+api_hash = os.environ['46bd0c66abaa26db6eb62abbf7b1eaaa']) 
+phone_number = os.environ['+6283895257557']
 
 print(f"✅ Loaded credentials for: {phone_number}")
 
