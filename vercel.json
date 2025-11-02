@@ -11,10 +11,5 @@
       "src": "/(.*)",
       "dest": "/api/keep-alive.js"
     }
-  ],
-  "env": {
-    "API_ID": "@api-id",
-    "API_HASH": "@api-hash",
-    "PHONE_NUMBER": "@phone-number"
-  }
+  ]
 }
