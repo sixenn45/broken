@@ -1,20 +1,19 @@
 const { spawn } = require('child_process');
-const http = require('http');
 
 module.exports = async (req, res) => {
   console.log('🔄 Starting Telegram UserBot...');
   
-  // Set CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
+  // Check if environment variables are set
+  if (!process.env.API_ID || !process.env.API_HASH || !process.env.PHONE_NUMBER) {
+    return res.status(500).json({
+      status: 'error',
+      message: 'Environment variables not set! Please setup API_ID, API_HASH, and PHONE_NUMBER in Vercel dashboard.',
+      timestamp: new Date().toISOString()
+    });
   }
   
   try {
-    // Jalankan Python bot sebagai background process
+    // Jalankan bot
     const pythonProcess = spawn('python', ['bot.py'], {
       detached: true,
       stdio: 'ignore'
@@ -22,28 +21,14 @@ module.exports = async (req, res) => {
     
     pythonProcess.unref();
     
-    console.log('✅ Telegram UserBot process started');
-    
-    // Response untuk HTTP request
     res.status(200).json({
       status: 'success',
-      message: 'Telegram UserBot is running!',
-      timestamp: new Date().toISOString(),
-      environment: process.env.NODE_ENV || 'production'
+      message: 'Bot started!',
+      timestamp: new Date().toISOString()
     });
     
   } catch (error) {
-    console.error('❌ Error starting bot:', error);
     res.status(500).json({
       status: 'error',
       message: error.message
     });
-  }
-};
-
-// Auto ping untuk keep alive
-if (process.env.VERCEL_URL) {
-  setInterval(() => {
-    http.get(`https://${process.env.VERCEL_URL}/api/keep-alive`);
-  }, 300000); // 5 minutes
-}
