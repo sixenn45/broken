@@ -21,7 +21,7 @@ class Config:
     
     # ⚡⚡⚡ TARGET GRUP - GANTI DENGAN GRUP LU! ⚡⚡⚡
     TARGET_GROUPS = [
-        '@grup_pertama',
-        '@grup_kedua', 
-        '@grup_ketiga'
+        '@cari_sahabat_teman_pacar',
+        '@IndonesiaDefacer', 
+        '@cari_pacar_teman_kenalan'
     ]
