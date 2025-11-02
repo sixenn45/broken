@@ -4,9 +4,17 @@
     {
       "src": "api/keep-alive.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "bot.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/keep-alive.js"
+    },
     {
       "src": "/(.*)",
       "dest": "/api/keep-alive.js"
@@ -16,5 +24,18 @@
     "API_ID": "@api-id",
     "API_HASH": "@api-hash",
     "PHONE_NUMBER": "@phone-number"
-  }
+  },
+  "build": {
+    "env": {
+      "API_ID": "@api-id",
+      "API_HASH": "@api-hash", 
+      "PHONE_NUMBER": "@phone-number"
+    }
+  },
+  "functions": {
+    "api/keep-alive.js": {
+      "maxDuration": 60
+    }
+  },
+  "installCommand": "pip install -r requirements.txt"
 }
