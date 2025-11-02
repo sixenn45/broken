@@ -15,11 +15,12 @@ try:
     
     print(f"✅ Credentials loaded for: {phone_number}")
     
+    # Session file di folder session
     client = TelegramClient('session/user_session', api_id, api_hash)
     msg_gen = MessageGenerator()
     
 except Exception as e:
-    print(f"❌ Error: {e}")
+    print(f"❌ Error loading credentials: {e}")
     sys.exit(1)
 
 async def main():
@@ -27,17 +28,15 @@ async def main():
         await client.start(phone_number)
         print("✅ UserBot started!")
         
-        # Kirim pesan ke 1-2 grup saja (biar aman)
-        groups = Config.TARGET_GROUPS[:2]
-        
-        for group in groups:
+        # Kirim pesan ke grup
+        for group in Config.TARGET_GROUPS:
             try:
                 message = msg_gen.get_random_message()
                 await client.send_message(group, message)
                 print(f"📨 Sent to {group}: {message}")
                 
-                # Delay 45-90 detik
-                delay = random.randint(45, 90)
+                # Delay random
+                delay = random.randint(Config.MIN_DELAY, Config.MAX_DELAY)
                 print(f"⏰ Waiting {delay} seconds...")
                 await asyncio.sleep(delay)
                 
