@@ -5,28 +5,22 @@ class MessageGenerator:
     def __init__(self):
         self.message_pools = {
             'indonesia': [
-                "Halo semua! Apa kabar nih? 😊",
-                "Diskusi seru banget ini! 💬",
-                "Ada info terbaru ga? 🔥",
-                "Semangat hari ini guys! 💪",
-                "Wah menarik banget topiknya! 🎯",
-                "Pendapat kalian gimana? 🤔",
+                "ada yang baru @jilbabketat? 😊",
+                "kuyy join bro @jilbabketat 💬",
+                "@jilbabketat info terbaru ga? 🔥",
+                "Semangat hari ini guys! t.me/jilbabketat💪",
+                "gabungg yuk @jilbabketat! 🎯",
+                "hay ka @jilbabketat 🤔",
                 "Lagi pada ngapain nih? 🎮",
                 "Ada rekomendasi film bagus? 🎬",
-                "Musik favorit kalian apa? 🎵",
-                "Makanan enak apa hari ini? 🍔"
+                "Musik favorit kalian apa? @jilbabketat 🎵",
+                "Makanan enak apa hari ini? @jilbabketat 🍔"
             ],
             'random': [
-                "Hello everyone! How's it going? 🌟",
-                "Interesting discussion! 💭",
-                "Any updates? 📢",
-                "Keep up the good work! 👏",
-                "This is awesome! 🚀",
-                "What do you think? 💡",
-                "Anyone online? 🖥️",
-                "Good morning/afternoon/evening! 🌅",
-                "Nice weather today! ☀️",
-                "Happy weekend! 🎉"
+                "Hello everyone! @jilbabketat How's it going? 🌟",
+                "Interesting discussion! @jilbabketat 💭",
+                "Any updates? @jilbabketat 📢",
+                "Keep up the good work! @jilbabketatat"
             ]
         }
         
