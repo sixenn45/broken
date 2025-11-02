@@ -22,6 +22,11 @@ jobs:
     - name: 📦 Install dependencies
       run: pip install telethon aiohttp
         
+    - name: 🔧 Setup session directory
+      run: |
+        mkdir -p session
+        chmod 755 session
+        
     - name: 🚀 Run Telegram Bot
       env:
         API_ID: ${{ secrets.API_ID }}
